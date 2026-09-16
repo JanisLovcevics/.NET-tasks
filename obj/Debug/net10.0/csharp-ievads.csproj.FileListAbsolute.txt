@@ -1,0 +1,14 @@
+C:\Users\A250338JL\Documents\csharp-ievads\bin\Debug\net10.0\csharp-ievads.exe
+C:\Users\A250338JL\Documents\csharp-ievads\bin\Debug\net10.0\csharp-ievads.deps.json
+C:\Users\A250338JL\Documents\csharp-ievads\bin\Debug\net10.0\csharp-ievads.runtimeconfig.json
+C:\Users\A250338JL\Documents\csharp-ievads\bin\Debug\net10.0\csharp-ievads.dll
+C:\Users\A250338JL\Documents\csharp-ievads\bin\Debug\net10.0\csharp-ievads.pdb
+C:\Users\A250338JL\Documents\csharp-ievads\obj\Debug\net10.0\csharp-ievads.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\A250338JL\Documents\csharp-ievads\obj\Debug\net10.0\csharp-ievads.AssemblyInfoInputs.cache
+C:\Users\A250338JL\Documents\csharp-ievads\obj\Debug\net10.0\csharp-ievads.AssemblyInfo.cs
+C:\Users\A250338JL\Documents\csharp-ievads\obj\Debug\net10.0\csharp-ievads.csproj.CoreCompileInputs.cache
+C:\Users\A250338JL\Documents\csharp-ievads\obj\Debug\net10.0\csharp-ievads.dll
+C:\Users\A250338JL\Documents\csharp-ievads\obj\Debug\net10.0\refint\csharp-ievads.dll
+C:\Users\A250338JL\Documents\csharp-ievads\obj\Debug\net10.0\csharp-ievads.pdb
+C:\Users\A250338JL\Documents\csharp-ievads\obj\Debug\net10.0\csharp-ievads.genruntimeconfig.cache
+C:\Users\A250338JL\Documents\csharp-ievads\obj\Debug\net10.0\ref\csharp-ievads.dll
