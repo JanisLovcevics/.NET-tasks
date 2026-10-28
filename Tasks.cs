@@ -1,3 +1,5 @@
+using System.Runtime.CompilerServices;
+
 namespace Tasks
 {
     class Solutions
@@ -145,6 +147,66 @@ namespace Tasks
                 Console.WriteLine($"Mazie pirkumi: {maziePirkumi}");
                 Console.WriteLine($"Vidējie pirkumi: {videjiePirkumi}");
                 Console.WriteLine($"Lielie pirkumi: {lieliePirkumi}");
+            }
+
+            public static void KlasesSkolenuSaraksts()
+            {
+                List<string> skoleni = new List<string>();
+
+                void izvaditSarakstu()
+                {
+                    foreach (var skolens in skoleni)
+                    {
+                        Console.WriteLine(skolens);
+                    }
+                }
+
+                skoleni.Add("Janis");
+                skoleni.Add("Vsevolods");
+                skoleni.Add("Sofa");
+                skoleni.Add("Aleks");
+                skoleni.Add("Emils");
+
+                bool active = true;
+
+                while (active)
+                {
+                    Console.WriteLine("1 - Pievienot skolēnu");
+                    Console.WriteLine("2 - Dzēst skolēnu");
+                    Console.WriteLine("3 - Parādīt visus skolēnus");
+                    Console.WriteLine("4 - Parādīt skolēnu skaitu");
+                    Console.WriteLine("0 - Iziet");
+
+                    int taskNumber = int.Parse(Console.ReadLine());
+
+                    Console.Clear();
+
+                    switch (taskNumber)
+                    {
+                        case 1:
+                            Console.Write("Uzraksti skolēna vārdu pievienošanai: ");
+                            skoleni.Add(Console.ReadLine());
+                            break;
+                        case 2:
+                            Console.WriteLine("Uzraksti skolēna vārdu dzēšanai:");
+                            skoleni.Remove(Console.ReadLine());
+                            break;
+                        case 3:
+                            izvaditSarakstu();
+                            break;
+                        case 4:
+                            Console.WriteLine($"Skolēnu skaits sarakstā: {skoleni.Count}");
+                            break;
+                        case 0:
+                            active = false;
+                            break;
+                        default:
+                            Console.WriteLine("Wrong input");
+                            break;
+                    }
+
+                    Console.WriteLine("\n\n");
+                }
             }
         }
     }
