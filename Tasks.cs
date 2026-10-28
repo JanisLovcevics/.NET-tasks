@@ -1,4 +1,5 @@
 using System.Runtime.CompilerServices;
+using System.Security.Cryptography.X509Certificates;
 
 namespace Tasks
 {
@@ -207,6 +208,41 @@ namespace Tasks
 
                     Console.WriteLine("\n\n");
                 }
+            }
+
+            public static void KonsolesSaturaRaditajs()
+            {
+                void izvaditSaturaRaditaju(string nosaukums, string numurs)
+                {
+                    Console.WriteLine(nosaukums + new string('.', 40 - nosaukums.Length - numurs.Length) + numurs);
+                }
+
+                var saturs = new List<Dictionary<string, string>>();
+
+                for (int i = 0; i < 3; i++)
+                {
+                    Console.Write("Ievadiet nodaļas nosaukumu: ");
+                    string nodalasNosaukums = Console.ReadLine();
+
+                    Console.Write("Ievadiet lapas numuru: ");
+                    string lapasNumurs = Console.ReadLine();
+
+                    saturs.Add(new Dictionary<string, string>
+                    {
+                        ["nodaļas nosaukums"] = nodalasNosaukums,
+                        ["lapas numurs"] = lapasNumurs
+                    });
+                }
+
+                foreach (var rinda in saturs)
+                {
+                    izvaditSaturaRaditaju(rinda["nodaļas nosaukums"], rinda["lapas numurs"]);
+                }
+            }
+
+            public static void PrintStars(int count)
+            {
+                Console.Write(count);
             }
         }
     }

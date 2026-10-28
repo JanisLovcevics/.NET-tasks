@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using Tasks;
+﻿using Tasks;
 using System.Reflection;
 
 namespace Programm
@@ -12,33 +11,69 @@ namespace Programm
             .Where(t => t.IsClass)
             .ToArray();
 
-            Console.WriteLine("Select module:");
-
-            for (int i = 0; i < modules.Length; i++)
-            {
-                Console.WriteLine($"{i+1}. {modules[i].Name}");
-            }
-
-            Console.WriteLine();
-
             try
             {
-                int moduleIndex = int.Parse(Console.ReadLine()) - 1;
+                int moduleIndex = 0;
+                
+                if (args.Length >= 1)
+                {
+                    moduleIndex = int.Parse(args[0]) - 1;
+                }
+                else
+                {
+                    Console.WriteLine("Select module:");
+
+                    for (int i = 0; i < modules.Length; i++)
+                    {
+                        Console.WriteLine($"{i+1}. {modules[i].Name}");
+                    }
+
+                    Console.WriteLine();
+                    moduleIndex = int.Parse(Console.ReadLine()) - 1;
+                }
 
                 var selectedModuleTasks = modules[moduleIndex].GetMethods(BindingFlags.DeclaredOnly | BindingFlags.Static | BindingFlags.Public);
 
-                Console.WriteLine("Select task:");
+                int methodIndex = 0;
 
-                for (int i = 0; i < selectedModuleTasks.Length; i++)
+                if(args.Length >= 2)
                 {
-                    Console.WriteLine($"{i+1}. {selectedModuleTasks[i].Name}");
+                    methodIndex = int.Parse(args[1]) - 1;
+                }
+                else
+                {
+                    Console.WriteLine("Select task:");
+
+                    for (int i = 0; i < selectedModuleTasks.Length; i++)
+                    {
+                        Console.WriteLine($"{i+1}. {selectedModuleTasks[i].Name}");
+                    }
+
+                    methodIndex = int.Parse(Console.ReadLine()) - 1;
                 }
 
-                int methodIndex = int.Parse(Console.ReadLine()) - 1;
+                var paramInfo = selectedModuleTasks[methodIndex].GetParameters();
+                object[] methodArgs = null;
+
+                if (paramInfo.Length > 0)
+                {
+                    Console.WriteLine($"Enter parameters for method {selectedModuleTasks[methodIndex].Name}");
+                    methodArgs = new object[paramInfo.Length];
+
+                    for (int i = 0; i < paramInfo.Length; i++)
+                    {
+                        var param = paramInfo[i];
+
+                        Console.Write($"  Enter {param.Name} ({param.ParameterType.Name}): ");
+                        string userInput = Console.ReadLine();
+
+                        methodArgs[i] = Convert.ChangeType(userInput, param.ParameterType);
+                    }
+                }
 
                 Console.Clear();
 
-                selectedModuleTasks[methodIndex].Invoke(null, null);
+                selectedModuleTasks[methodIndex].Invoke(null, methodArgs);
             }
             catch (Exception ex)
             {
