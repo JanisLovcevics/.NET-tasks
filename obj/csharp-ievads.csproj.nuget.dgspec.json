@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\A250338JL\\Documents\\csharp-ievads\\csharp-ievads.csproj": {}
+    "C:\\Users\\A250338JL\\Documents\\csharp-ievads\\csharp-ievads.csproj": {}
   },
   "projects": {
-    "c:\\Users\\A250338JL\\Documents\\csharp-ievads\\csharp-ievads.csproj": {
+    "C:\\Users\\A250338JL\\Documents\\csharp-ievads\\csharp-ievads.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\A250338JL\\Documents\\csharp-ievads\\csharp-ievads.csproj",
+        "projectUniqueName": "C:\\Users\\A250338JL\\Documents\\csharp-ievads\\csharp-ievads.csproj",
         "projectName": "csharp-ievads",
-        "projectPath": "c:\\Users\\A250338JL\\Documents\\csharp-ievads\\csharp-ievads.csproj",
+        "projectPath": "C:\\Users\\A250338JL\\Documents\\csharp-ievads\\csharp-ievads.csproj",
         "packagesPath": "C:\\Users\\A250338JL\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\A250338JL\\Documents\\csharp-ievads\\obj\\",
+        "outputPath": "C:\\Users\\A250338JL\\Documents\\csharp-ievads\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\A250338JL\\AppData\\Roaming\\NuGet\\NuGet.Config"

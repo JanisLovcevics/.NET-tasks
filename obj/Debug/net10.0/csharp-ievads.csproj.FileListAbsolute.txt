@@ -12,3 +12,4 @@ C:\Users\A250338JL\Documents\csharp-ievads\obj\Debug\net10.0\refint\csharp-ievad
 C:\Users\A250338JL\Documents\csharp-ievads\obj\Debug\net10.0\csharp-ievads.pdb
 C:\Users\A250338JL\Documents\csharp-ievads\obj\Debug\net10.0\csharp-ievads.genruntimeconfig.cache
 C:\Users\A250338JL\Documents\csharp-ievads\obj\Debug\net10.0\ref\csharp-ievads.dll
+c:\Users\A250338JL\Documents\csharp-ievads\obj\Debug\net10.0\csharp-ievads.sourcelink.json
