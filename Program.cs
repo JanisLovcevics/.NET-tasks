@@ -66,17 +66,20 @@ namespace Programm
                             methodArgs[i - 2] = Convert.ChangeType(args[i], paramInfo[i - 2].ParameterType);
                         }
                     }
-                    
-                    Console.WriteLine($"Enter parameters for method {selectedModuleTasks[methodIndex].Name}");
 
-                    for (int i = 0; i < paramInfo.Length; i++)
+                    if (methodArgs.Count(x => x == null) > 0)
                     {
-                        var param = paramInfo[i];
+                        Console.WriteLine($"Enter parameters for method {selectedModuleTasks[methodIndex].Name}");
 
-                        Console.Write($"  Enter {param.Name} ({param.ParameterType.Name}): ");
-                        string userInput = Console.ReadLine();
+                        for (int i = Array.IndexOf(methodArgs, null); i < paramInfo.Length; i++)
+                        {
+                            var param = paramInfo[i];
 
-                        methodArgs[i] = Convert.ChangeType(userInput, param.ParameterType);
+                            Console.Write($"  Enter {param.Name} ({param.ParameterType.Name}): ");
+                            string userInput = Console.ReadLine();
+
+                            methodArgs[i] = Convert.ChangeType(userInput, param.ParameterType);
+                        }
                     }
                 }
 
@@ -86,7 +89,7 @@ namespace Programm
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                Console.WriteLine(ex.InnerException.Message);
             }
         }
     }

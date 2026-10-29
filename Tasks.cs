@@ -1,7 +1,3 @@
-using System.Runtime.CompilerServices;
-using System.Security.Cryptography.X509Certificates;
-using System.Security.Principal;
-
 namespace Tasks
 {
     class Solutions
@@ -274,7 +270,7 @@ namespace Tasks
             {
                 for (int i = 0; i < height; i++)
                 {
-                    Console.Write(new string(' ', height - 2 - i));
+                    Console.Write(new string(' ', height - 1 - i));
                     Console.WriteLine(new string('*', i) + '*' + new string('*', i));
                 }
             }
