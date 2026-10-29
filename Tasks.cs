@@ -1,5 +1,6 @@
 using System.Runtime.CompilerServices;
 using System.Security.Cryptography.X509Certificates;
+using System.Security.Principal;
 
 namespace Tasks
 {
@@ -242,7 +243,40 @@ namespace Tasks
 
             public static void PrintStars(int count)
             {
-                Console.Write(count);
+                Console.WriteLine(new string('*', count));
+            }
+
+            public static void PrintSquare(int size)
+            {
+                for (int i = 0; i < size; i++)
+                {
+                    Console.WriteLine(new string('*', size));
+                }
+            }
+
+            public static void PrintRectangle(int width, int height)
+            {
+                for (int i = 0; i < height; i++)
+                {
+                    Console.WriteLine(new string('*', width));
+                }
+            }
+
+            public static void PrintTriangle(int size)
+            {
+                for (int i = 1; i <= size; i++)
+                {
+                    PrintStars(i);
+                }
+            }
+
+            public static void PrintPyramid(int height)
+            {
+                for (int i = 0; i < height; i++)
+                {
+                    Console.Write(new string(' ', height - 2 - i));
+                    Console.WriteLine(new string('*', i) + '*' + new string('*', i));
+                }
             }
         }
     }

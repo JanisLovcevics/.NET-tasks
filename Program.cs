@@ -57,8 +57,17 @@ namespace Programm
 
                 if (paramInfo.Length > 0)
                 {
-                    Console.WriteLine($"Enter parameters for method {selectedModuleTasks[methodIndex].Name}");
                     methodArgs = new object[paramInfo.Length];
+
+                    if (args.Length > 2)
+                    {
+                        for (int i = 2; i < args.Length; i++)
+                        {
+                            methodArgs[i - 2] = Convert.ChangeType(args[i], paramInfo[i - 2].ParameterType);
+                        }
+                    }
+                    
+                    Console.WriteLine($"Enter parameters for method {selectedModuleTasks[methodIndex].Name}");
 
                     for (int i = 0; i < paramInfo.Length; i++)
                     {
