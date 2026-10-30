@@ -1,5 +1,6 @@
 ﻿using Tasks;
 using System.Reflection;
+using System.Runtime.CompilerServices;
 
 namespace Programm
 {
@@ -7,9 +8,17 @@ namespace Programm
     {
         static void Main (string[] args)
         {
-            var modules = typeof(Solutions).GetNestedTypes(BindingFlags.NonPublic)
-            .Where(t => t.IsClass)
-            .ToArray();
+            // var modules = typeof(Solutions).GetNestedTypes(BindingFlags.NonPublic)
+            // .Where(t => t.IsClass)
+            // .ToArray();
+
+            Assembly currentAssembly = Assembly.GetExecutingAssembly();
+
+            var modules = currentAssembly.GetTypes()
+                .Where(t => t.IsClass && !t.IsDefined(typeof(CompilerGeneratedAttribute), false) && t.Name != nameof(Class1) && t.Name != nameof(Solutions))
+                .ToArray();
+            
+            Console.WriteLine(modules.GetType());
 
             try
             {
