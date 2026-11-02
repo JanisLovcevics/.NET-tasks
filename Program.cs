@@ -16,6 +16,7 @@ namespace Programm
 
             var modules = currentAssembly.GetTypes()
                 .Where(t => t.IsClass && !t.IsDefined(typeof(CompilerGeneratedAttribute), false) && t.Name != nameof(Class1) && t.Name != nameof(Solutions))
+                .OrderBy(t => t.Name)
                 .ToArray();
             
             Console.WriteLine(modules.GetType());
