@@ -1,11 +1,10 @@
-using System.Runtime.CompilerServices;
-
 class AutoPark
 {
     public static void AutoParking()
     {
         string[] parkingSpaces = new string[10];
         List<string> parkingHistory = new List<string>();
+        List<string> vipCars = new List<string> {"aa1234", "bb4321"};
 
         bool active = true;
 
@@ -40,6 +39,10 @@ class AutoPark
                         {
                             parkingSpaces[parkingIndex] = numuraZime;
                             parkingHistory.Add(numuraZime);
+                            if (vipCars.Contains(numuraZime))
+                            {
+                                Console.WriteLine("VIP automašīna ieradusies!");
+                            }
                             Console.WriteLine($"Auto novietots vietā Nr. {parkingIndex + 1}"); 
                         }
                         else
