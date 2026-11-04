@@ -17,9 +17,12 @@ class DiscountAppeal
             }
         }
 
-        for (int i = 0; i < discountedPrices.Length; i++)
-        {
-            
-        }
+        Console.WriteLine("Oriģinālās cenas:");
+        Console.WriteLine(string.Join(" ", prices));
+        Console.WriteLine("Apstrādātās cenas:");
+        Console.WriteLine(string.Join(" ", discountedPrices) + "\n");
+        Console.WriteLine("Oriģinālo cenu summa: " + prices.Sum());
+        Console.WriteLine("Apstrādāto cenu summa: " + discountedPrices.Sum());
+        Console.WriteLine("Kopējais ietaupījums: " + (prices.Sum() - discountedPrices.Sum()));
     }
 }
