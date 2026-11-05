@@ -1,107 +1,48 @@
-﻿using Tasks;
-using System.Reflection;
-using System.Runtime.CompilerServices;
-using System.Formats.Asn1;
-
-namespace Programm
+﻿namespace Programm
 {
     class Class1
     {
-        static void Main (string[] args)
+        public static void Main(string[] args)
         {
-            // var modules = typeof(Solutions).GetNestedTypes(BindingFlags.NonPublic)
-            // .Where(t => t.IsClass)
-            // .ToArray();
-
-            Assembly currentAssembly = Assembly.GetExecutingAssembly();
-
-            var modules = currentAssembly.GetTypes()
-                .Where(t => t.IsClass && !t.IsDefined(typeof(CompilerGeneratedAttribute), false) && t.Name != nameof(Class1) && t.Name != nameof(Solutions))
-                .OrderBy(t => t.Name)
-                .ToArray();
-
-            try
+            while(true)
             {
-                int typeIndex = 0;
-                
-                if (args.Length >= 1)
-                {
-                    typeIndex = int.Parse(args[0]) - 1;
-                }
-                else
-                {
-                    Console.WriteLine("Select module:");
+                Console.WriteLine("1 - Pievienot grāmatas");
+                Console.WriteLine("2 - Izsniegt grāmatu");
+                Console.WriteLine("3 - Atgriezt grāmatu");
+                Console.WriteLine("4 - Parādīt statistiku");
+                Console.WriteLine("0 - Iziet");
 
-                    for (int i = 0; i < modules.Length; i++)
-                    {
-                        Console.WriteLine($"{i+1}. {modules[i].Name}");
-                    }
-
-                    Console.WriteLine();
-                    typeIndex = int.Parse(Console.ReadLine()) - 1;
-                }
-
-                var selectedModuleTasks = modules[typeIndex].GetMethods(BindingFlags.DeclaredOnly | BindingFlags.Static | BindingFlags.Public);
-
-                int methodIndex = 0;
-                if (selectedModuleTasks.Length != 1)
-                {
-                    if(args.Length >= 2)
-                    {
-                        methodIndex = int.Parse(args[1]) - 1;
-                    }
-                    else
-                    {
-                        Console.WriteLine("Select task:");
-
-                        for (int i = 0; i < selectedModuleTasks.Length; i++)
-                        {
-                            Console.WriteLine($"{i+1}. {selectedModuleTasks[i].Name}");
-                        }
-
-                        methodIndex = int.Parse(Console.ReadLine()) - 1;
-                    }
-                }
-                
-
-                var paramInfo = selectedModuleTasks[methodIndex].GetParameters();
-                object[] methodArgs = null;
-
-                if (paramInfo.Length > 0)
-                {
-                    methodArgs = new object[paramInfo.Length];
-
-                    if (args.Length > 2)
-                    {
-                        for (int i = 2; i < args.Length; i++)
-                        {
-                            methodArgs[i - 2] = Convert.ChangeType(args[i], paramInfo[i - 2].ParameterType);
-                        }
-                    }
-
-                    if (methodArgs.Count(x => x == null) > 0)
-                    {
-                        Console.WriteLine($"Enter parameters for method {selectedModuleTasks[methodIndex].Name}");
-
-                        for (int i = Array.IndexOf(methodArgs, null); i < paramInfo.Length; i++)
-                        {
-                            var param = paramInfo[i];
-
-                            Console.Write($"  Enter {param.Name} ({param.ParameterType.Name}): ");
-                            string userInput = Console.ReadLine();
-
-                            methodArgs[i] = Convert.ChangeType(userInput, param.ParameterType);
-                        }
-                    }
-                }
+                int activity = int.Parse(Console.ReadLine());
 
                 Console.Clear();
 
-                selectedModuleTasks[methodIndex].Invoke(null, methodArgs);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.InnerException.Message);
+                if (activity == 1)
+                {
+                    Console.Write("Ievadiet grāmatu skaitu: ");
+                    Library.AddBooks(int.Parse(Console.ReadLine()));
+                }
+                else if (activity == 2)
+                {
+                    Library.BorrowBook();
+                }
+                else if (activity == 3)
+                {
+                    Library.ReturnBook();
+                }
+                else if (activity == 4)
+                {
+                    Library.ShowStatistics();
+                }
+                else if (activity == 0)
+                {
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("Wrong action");
+                }
+
+                Console.WriteLine("\n");
             }
         }
     }
