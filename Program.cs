@@ -43,22 +43,25 @@ namespace Programm
                 var selectedModuleTasks = modules[moduleIndex].GetMethods(BindingFlags.DeclaredOnly | BindingFlags.Static | BindingFlags.Public);
 
                 int methodIndex = 0;
-
-                if(args.Length >= 2)
+                if (selectedModuleTasks.Length != 1)
                 {
-                    methodIndex = int.Parse(args[1]) - 1;
-                }
-                else
-                {
-                    Console.WriteLine("Select task:");
-
-                    for (int i = 0; i < selectedModuleTasks.Length; i++)
+                    if(args.Length >= 2)
                     {
-                        Console.WriteLine($"{i+1}. {selectedModuleTasks[i].Name}");
+                        methodIndex = int.Parse(args[1]) - 1;
                     }
+                    else
+                    {
+                        Console.WriteLine("Select task:");
 
-                    methodIndex = int.Parse(Console.ReadLine()) - 1;
+                        for (int i = 0; i < selectedModuleTasks.Length; i++)
+                        {
+                            Console.WriteLine($"{i+1}. {selectedModuleTasks[i].Name}");
+                        }
+
+                        methodIndex = int.Parse(Console.ReadLine()) - 1;
+                    }
                 }
+                
 
                 var paramInfo = selectedModuleTasks[methodIndex].GetParameters();
                 object[] methodArgs = null;
