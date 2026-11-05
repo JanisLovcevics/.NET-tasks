@@ -1,6 +1,7 @@
 ﻿using Tasks;
 using System.Reflection;
 using System.Runtime.CompilerServices;
+using System.Formats.Asn1;
 
 namespace Programm
 {
@@ -21,11 +22,11 @@ namespace Programm
 
             try
             {
-                int moduleIndex = 0;
+                int typeIndex = 0;
                 
                 if (args.Length >= 1)
                 {
-                    moduleIndex = int.Parse(args[0]) - 1;
+                    typeIndex = int.Parse(args[0]) - 1;
                 }
                 else
                 {
@@ -37,10 +38,10 @@ namespace Programm
                     }
 
                     Console.WriteLine();
-                    moduleIndex = int.Parse(Console.ReadLine()) - 1;
+                    typeIndex = int.Parse(Console.ReadLine()) - 1;
                 }
 
-                var selectedModuleTasks = modules[moduleIndex].GetMethods(BindingFlags.DeclaredOnly | BindingFlags.Static | BindingFlags.Public);
+                var selectedModuleTasks = modules[typeIndex].GetMethods(BindingFlags.DeclaredOnly | BindingFlags.Static | BindingFlags.Public);
 
                 int methodIndex = 0;
                 if (selectedModuleTasks.Length != 1)
