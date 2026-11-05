@@ -4,6 +4,9 @@
     {
         public static void Main(string[] args)
         {
+            Console.Write("Ievadiet bibliotēkas nosaukumu: ");
+            Library.LibraryName = Console.ReadLine();
+
             while(true)
             {
                 Console.WriteLine("1 - Pievienot grāmatas");

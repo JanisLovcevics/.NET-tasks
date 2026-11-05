@@ -11,7 +11,7 @@ public class Library
 
     public static void BorrowBook()
     {
-        if (TotalBooks > 0)
+        if (BorrowedBooks < TotalBooks)
         {
             BorrowedBooks++;
             Console.WriteLine("Grāmata izsniegta");
