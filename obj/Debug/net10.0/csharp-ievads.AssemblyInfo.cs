@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("csharp-ievads")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d597b29f6c3ffb6076a891542a762cc7b1edd346")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b3c246b53d90ffc03171b3a217c93f5a7918458f")]
 [assembly: System.Reflection.AssemblyProductAttribute("csharp-ievads")]
 [assembly: System.Reflection.AssemblyTitleAttribute("csharp-ievads")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
