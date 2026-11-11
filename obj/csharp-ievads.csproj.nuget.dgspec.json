@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\A250338JL\\Documents\\csharp-ievads\\csharp-ievads.csproj": {}
+    "C:\\Users\\A250338JL.RVT\\Documents\\.NET-tasks\\csharp-ievads.csproj": {}
   },
   "projects": {
-    "C:\\Users\\A250338JL\\Documents\\csharp-ievads\\csharp-ievads.csproj": {
+    "C:\\Users\\A250338JL.RVT\\Documents\\.NET-tasks\\csharp-ievads.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\A250338JL\\Documents\\csharp-ievads\\csharp-ievads.csproj",
+        "projectUniqueName": "C:\\Users\\A250338JL.RVT\\Documents\\.NET-tasks\\csharp-ievads.csproj",
         "projectName": "csharp-ievads",
-        "projectPath": "C:\\Users\\A250338JL\\Documents\\csharp-ievads\\csharp-ievads.csproj",
-        "packagesPath": "C:\\Users\\A250338JL\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\A250338JL\\Documents\\csharp-ievads\\obj\\",
+        "projectPath": "C:\\Users\\A250338JL.RVT\\Documents\\.NET-tasks\\csharp-ievads.csproj",
+        "packagesPath": "C:\\Users\\A250338JL.RVT\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\A250338JL.RVT\\Documents\\.NET-tasks\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\A250338JL\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\A250338JL.RVT\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net10.0"

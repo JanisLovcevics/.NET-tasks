@@ -15,37 +15,43 @@
                 Console.WriteLine("4 - Parādīt statistiku");
                 Console.WriteLine("0 - Iziet");
 
-                int activity = int.Parse(Console.ReadLine());
+                if(int.TryParse(Console.ReadLine(), out int activity))
+                {
+                    Console.Clear();
 
-                Console.Clear();
+                    if (activity == 1)
+                    {
+                        Console.Write("Ievadiet grāmatu skaitu: ");
+                        Library.AddBooks(int.Parse(Console.ReadLine()));
+                    }
+                    else if (activity == 2)
+                    {
+                        Library.BorrowBook();
+                    }
+                    else if (activity == 3)
+                    {
+                        Library.ReturnBook();
+                    }
+                    else if (activity == 4)
+                    {
+                        Library.ShowStatistics();
+                    }
+                    else if (activity == 0)
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Wrong action");
+                    }
 
-                if (activity == 1)
-                {
-                    Console.Write("Ievadiet grāmatu skaitu: ");
-                    Library.AddBooks(int.Parse(Console.ReadLine()));
-                }
-                else if (activity == 2)
-                {
-                    Library.BorrowBook();
-                }
-                else if (activity == 3)
-                {
-                    Library.ReturnBook();
-                }
-                else if (activity == 4)
-                {
-                    Library.ShowStatistics();
-                }
-                else if (activity == 0)
-                {
-                    break;
+                    Console.WriteLine("\n");
                 }
                 else
                 {
-                    Console.WriteLine("Wrong action");
-                }
-
-                Console.WriteLine("\n");
+                    Console.Clear();
+                    Console.WriteLine("This is not a number");
+                }                
             }
         }
     }
