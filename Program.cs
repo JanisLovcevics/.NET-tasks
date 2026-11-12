@@ -4,55 +4,32 @@
     {
         public static void Main(string[] args)
         {
-            Console.Write("Ievadiet bibliotēkas nosaukumu: ");
-            Library.LibraryName = Console.ReadLine();
+            Pet cat = new Pet("Ginger", "cat", 8);
+            Pet dog = new Pet("Mira", "dog", 2);
+            Pet parrot = new Pet("Petya", "parrot", 3);
 
-            while(true)
+            Pet[] pets = {cat, dog, parrot};
+
+            foreach (Pet pet in pets)
             {
-                Console.WriteLine("1 - Pievienot grāmatas");
-                Console.WriteLine("2 - Izsniegt grāmatu");
-                Console.WriteLine("3 - Atgriezt grāmatu");
-                Console.WriteLine("4 - Parādīt statistiku");
-                Console.WriteLine("0 - Iziet");
-
-                if(int.TryParse(Console.ReadLine(), out int activity))
-                {
-                    Console.Clear();
-
-                    if (activity == 1)
-                    {
-                        Console.Write("Ievadiet grāmatu skaitu: ");
-                        Library.AddBooks(int.Parse(Console.ReadLine()));
-                    }
-                    else if (activity == 2)
-                    {
-                        Library.BorrowBook();
-                    }
-                    else if (activity == 3)
-                    {
-                        Library.ReturnBook();
-                    }
-                    else if (activity == 4)
-                    {
-                        Library.ShowStatistics();
-                    }
-                    else if (activity == 0)
-                    {
-                        break;
-                    }
-                    else
-                    {
-                        Console.WriteLine("Wrong action");
-                    }
-
-                    Console.WriteLine("\n");
-                }
-                else
-                {
-                    Console.Clear();
-                    Console.WriteLine("This is not a number");
-                }                
+                Console.WriteLine($"Vārds: {pet.Name}");
+                Console.WriteLine($"Suga: {pet.Species}");
+                Console.WriteLine($"Vecums: {pet.Age}");
             }
+        }
+    }
+
+    class Pet
+    {
+        public string Name {get; set;}
+        public string Species {get; set;}
+        public int Age {get; set;}
+
+        public Pet(string name, string species, int age)
+        {
+            Name = name;
+            Species = species;
+            Age = age;
         }
     }
 }
