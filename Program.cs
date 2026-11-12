@@ -1,10 +1,15 @@
-﻿namespace Programm
+﻿public class InventoryItem
 {
-    class Class1
-    {
-        public static void Main(string[] args)
-        {
-            
-        }
-    }
+    public Guid Id {get; set;} = new Guid();
+    public string Name {get; set;} = string.Empty;
+    public string Category {get; set;} = string.Empty;
+    public int Quantity {get; set;}
+    public decimal PriceEur {get; set;}
+    public DateTime? ExpirationDate {get; set;}
+}
+
+public interface IInvetoryRepository
+{
+    Task<List<InventoryItem>> LoadAsync();
+    Task<List<InventoryItem>> SaveAsync(List<InventoryItem> items);
 }
