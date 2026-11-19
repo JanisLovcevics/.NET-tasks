@@ -14,13 +14,16 @@
             {
                 Console.WriteLine($"Vārds: {pet.Name}");
                 Console.WriteLine($"Suga: {pet.Species}");
-                Console.WriteLine($"Vecums: {pet.Age}");
+                Console.WriteLine($"Vecums: {pet.Age}\n");
             }
+
+            Console.WriteLine($"Kopā reģistrēti {Pet.ObjectCreated} mājdzīvnieki");
         }
     }
 
     class Pet
     {
+        public static int ObjectCreated {get; set;} = 0;
         public string Name {get; set;}
         public string Species {get; set;}
         public int Age {get; set;}
@@ -30,6 +33,8 @@
             Name = name;
             Species = species;
             Age = age;
+
+            ObjectCreated++;
         }
     }
 }
