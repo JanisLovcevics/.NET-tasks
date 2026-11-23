@@ -1,29 +1,59 @@
-﻿class Program
+﻿using System.Drawing;
+
+class Program
 {
     static void Main(string[] args)
     {
-        for (int i = 0; i < 3; i++)
-        {
-            Console.Write("Name: ");
-            string name = Console.ReadLine();
-            Console.Write("Species: ");
-            string species = Console.ReadLine();
-            Console.Write("Age: ");
-            int age = int.Parse(Console.ReadLine());
+        Square square = new Square(2);
+        Circle circle = new Circle(3);
 
-            Pet pet = new Pet() {Name = name, Species = species, Age = age};
+        List<Figure> figures = new List<Figure> {square, circle};
+
+        foreach (Figure fig in figures)
+        {
+            fig.Draw();
         }
     }
 }
 
-class Pet
-{
-    public string Name;
-    public string Species;
-    public int Age;
 
-    public Pet()
+class Figure
+{
+    int Size;
+
+    public virtual void Draw()
+    {
+        Console.WriteLine("figure");
+    }
+
+    public Figure(int size)
+    {
+        Size = size;
+    }
+}
+
+class Square : Figure
+{
+    public override void Draw()
+    {
+        Console.WriteLine("🟩");
+    }
+
+    public Square(int size) : base (size)
     {
         
+    }
+}
+
+class Circle : Figure
+{
+    public Circle (int size) : base (size)
+    {
+        
+    }
+
+    public override void Draw()
+    {
+        Console.WriteLine("🟢");
     }
 }
