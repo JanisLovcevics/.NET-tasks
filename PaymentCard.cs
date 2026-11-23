@@ -2,7 +2,11 @@ namespace Classes
 {
     public class PaymentCard
     {
-        private double Balance {get; set
+        private double Balance {get
+            {
+                return field;
+            } 
+            set
             {
                 if (value < 0)
                 {
