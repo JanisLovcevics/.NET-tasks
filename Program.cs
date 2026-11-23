@@ -1,59 +1,94 @@
-﻿using System.Drawing;
-
-class Program
+﻿class BoxTester
 {
     static void Main(string[] args)
     {
-        Square square = new Square(2);
-        Circle circle = new Circle(3);
+        Box box = new Box(2.5, 5.0, 6.0);
 
-        List<Figure> figures = new List<Figure> {square, circle};
-
-        foreach (Figure fig in figures)
-        {
-            fig.Draw();
-        }
+        Console.WriteLine($"Area: {box.area()}  volume: {box.volume()}");
+        Console.WriteLine($"length: {box.Length()} height: {box.Height()} width: {box.Width()}");
+        Console.WriteLine($"Nests: {box.nests(new Box(3.0, 5.1, 7.0))}");
     }
 }
 
-
-class Figure
+class Box
 {
-    int Size;
+    private double width;
+    private double height;
+    private double length;
+    private double size;
 
-    public virtual void Draw()
+    public Box (double width, double height, double length)
     {
-        Console.WriteLine("figure");
+        this.width = width;
+        this.height = height;
+        this.length = length;
     }
 
-    public Figure(int size)
+    public Box (double size)
     {
-        Size = size;
-    }
-}
-
-class Square : Figure
-{
-    public override void Draw()
-    {
-        Console.WriteLine("🟩");
+        this.size = size;
     }
 
-    public Square(int size) : base (size)
+    public Box (Box oldBox)
     {
-        
-    }
-}
-
-class Circle : Figure
-{
-    public Circle (int size) : base (size)
-    {
-        
+        width = oldBox.width;
+        height = oldBox.height;
+        length = oldBox.length;
+        size = oldBox.size;
     }
 
-    public override void Draw()
+    public double volume()
     {
-        Console.WriteLine("🟢");
+        return width * height * length;
+    }
+
+    double faceArea()
+    {
+        return width * height;
+    }
+
+    double topArea()
+    {
+        return width * length;
+    }
+
+    double sideArea()
+    {
+        return length * height;
+    }
+
+    public double area()
+    {
+        return 2 * faceArea() + 2 * topArea() + 2 * sideArea();
+    }
+
+    public double Length()
+    {
+        return length;
+    }
+
+    public double Height()
+    {
+        return height;
+    }
+
+    public double Width()
+    {
+        return width;
+    }
+
+    public Box biggerBox (Box oldBox)
+    {
+        return new Box(1.25*oldBox.width, 1.25*oldBox.height, 1.25*oldBox.length);
+    }
+
+    public Box smallerBox (Box oldBox)
+    {
+        return new Box(0.75*oldBox.width, 0.75*oldBox.height, 0.75*oldBox.length);
+    }
+
+    public bool nests (Box outsideBox)
+    {
+        return length < outsideBox.length && width < outsideBox.width && height < outsideBox.height;
     }
 }
